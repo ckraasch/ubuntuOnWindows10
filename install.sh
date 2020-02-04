@@ -22,6 +22,8 @@ sudo apt install python3-pip # might be interactive
 sudo -H pip3 install youtube-dl
 sudo apt install ffmpeg
 
+# TODO: things in quotes ("xyz").
+
 # Useful conversion tools and commands provided by this setup:
 # 01) wget -i <list-of-file-urls>                # downloads files from web using a url list.
 # 02) pandoc                                     # converts between all kinds of documents formats.
@@ -30,8 +32,8 @@ sudo apt install ffmpeg
 # 05) youtube-dl <video-or-playlist-url>         # downloads videos and mp3 files from video platforms (most prominently: youtube).
 # 06) convert <image-file>.png <imge-file>.jpg   # converts between image formats.
 # 07) ffmpeg                                     # converts between audio and video formats.
-# 08) pdftotext                                  # converts pdf files to text files.
-# 09) mp3cut                                     # cuts out timespan from music file.
+# 08) "pdftotext"                                # converts pdf files to text files.
+# 09) "mp3cut"                                   # cuts out timespan from music file.
 #
 # Useful unix utilities.
 # 1) grep                                       # finds text in string.
@@ -43,4 +45,7 @@ sudo apt install ffmpeg
 #
 # Useful bash utilities.
 # 1) mytoxremove                                # removes dirty character from file names.
+# 2) "mydir"                                    # vim to change file names.
+# 3) "myGrepUrl"                                # filter out URLs.
 #
+
