@@ -12,7 +12,6 @@ alias yt-dl-vid-pl="youtube-dl --add-metadata -o '%(playlist_index)s_%(title)s.%
 alias yt-dl-vid-pl-folder="youtube-dl --add-metadata -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
 alias y="yt-dl-mp3" # extract mp3 file for single youtube link.
 
-### coded on: [2019-05-29 Wed 01:47] .
 function myDateIt() {
     newname=$(mydate)_$1
     success=$(mv -nv $1 $newname)
@@ -51,5 +50,42 @@ function mytoxremove() {
     mv -vib "$x" "$newName";
     myDateIt "$newName";
   done
+}
+
+function mydir() {
+  ls | xargs -I {} echo mv -i \"{}\" \"{}\" | tr " " "\t" | column -t -s $'\t' | vipe | bash
+}
+
+function myGrepUrlDoc() {
+    grep -Eo "(http|https)://[a-zA-Z0-9./?~=_-]*.*(doc|docx|xls|xlsx|ppt|pptx|pdf)"
+}
+
+function myGrepUrlImage() {
+    grep -Eo "(http|https)://[a-zA-Z0-9./?~=_-]*.*(jpg|jpeg|JPG|JPEG|gif|png|GIF|PNG)"
+}
+
+function myGrepUrl() {
+    grep -Eo "(http|https)://[a-zA-Z0-9./?~=_-]*"
+}
+
+function myGrepWww() {
+    grep -Eo "www.[a-zA-Z0-9./?~=_-]*"
+}
+
+function myScanSort() {
+  myMaxFileNum=$(ls | grep -E ".*\.png" | wc | sed 's/\ \ */\ /g' | cut -d' ' -f2)
+  myLen=${#myMaxFileNum} 
+  # rename 1st half.
+  i=1;
+  for x in a*.png; do
+    mv $x $(printf "%0"$myLen"d" $i)_$x;
+    i=$(($i+2));
+  done;
+  # rename 2nd half.
+  i=$(($(ls | grep -E "b.*\.png" | wc | sed 's/\ \ */\ /g' | cut -d' ' -f2)*2));
+  for x in b*.png; do
+    mv $x $(printf "%0"$myLen"d" $i)_$x;
+    i=$(($i-2));
+  done;
 }
 

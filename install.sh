@@ -14,13 +14,14 @@
 # on windows host: win+e key > ctrl+l key > //wsl$ type > enter key > 'Ubuntu' drag+drop to hotmenu.
 # on windows host: click into /home/gameboy/ > 'windows-host-dir' drag+drop to hotmenu.
 
-sudo apt install lynx
-sudo apt install tree
-sudo apt install imagemagick
-sudo apt install pandoc pandoc-data
-sudo apt install python3-pip # might be interactive
-sudo -H pip3 install youtube-dl
-sudo apt install ffmpeg
+sudo apt install lynx               # browse web pages as text.
+sudo apt install tree               # list directories.
+sudo apt install imagemagick        # image conversion.
+sudo apt install pandoc pandoc-data # document conversion.
+sudo apt install python3-pip        # might be interactive.
+sudo -H pip3 install youtube-dl     # video downloads.
+sudo apt install ffmpeg             # video and audio converter.
+sudo apt install vipe               # vim for the command line.
 
 # TODO: things in quotes ("xyz").
 
@@ -36,16 +37,18 @@ sudo apt install ffmpeg
 # 09) "mp3cut"                                   # cuts out timespan from music file.
 #
 # Useful unix utilities.
-# 1) grep                                       # finds text in string.
-# 2) sed                                        # replaces text in strings and files.
-# 3) vim                                        # fast text editing.
-# 4) find -name '*.pdf'                         # find pdf files in file structure.
-# 5) git                                        # version control (best for text files).
-# 6) git clone https://<github-url>             # download whole file structure from github repositories (also works for any other public git repos).
+# 01) grep                                       # finds text in string.
+# 02) sed                                        # replaces text in strings and files.
+# 03) vim                                        # fast text editing.
+# 04) find -name '*.pdf'                         # find pdf files in file structure.
+# 05) git                                        # version control (best for text files).
+# 06) git clone https://<github-url>             # download whole file structure from github repositories (also works for any other public git repos).
+# 07) tr                                         # replace characters.
 #
 # Useful bash utilities.
-# 1) mytoxremove                                # removes dirty character from file names.
-# 2) "mydir"                                    # vim to change file names.
-# 3) "myGrepUrl"                                # filter out URLs.
+# 01) mytoxremove                                # removes dirty character from file names.
+# 02) mydir                                      # vim to change file names.
+# 03) myGrepUrl                                  # filter out URLs.
+# 04) myScanSort                                 # sort stack of front pages and stock of back pages into alternating pages: aaa.. bbb.. -> ababab..
 #
-
+# Other commands: xargs mkdir rmdir rm cd ls 
