@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+alias cls='printf "\033c"'
+alias las='ls -las'
+alias src='source ~/.bashrc'
+alias mydate='date +%F'
+
+alias yt-dl-mp3="youtube-dl --add-metadata --extract-audio --audio-format mp3"
+alias yt-dl-mp3-pl="youtube-dl  --extract-audio --audio-format mp3 --add-metadata -o '%(playlist_index)s_%(title)s.%(ext)s' --restrict-filenames"
+alias yt-dl-vid="youtube-dl --add-metadata"
+alias yt-dl-vid-pl="youtube-dl --add-metadata -o '%(playlist_index)s_%(title)s.%(ext)s' --restrict-filenames"
+alias yt-dl-vid-pl-folder="youtube-dl --add-metadata -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
+alias y="yt-dl-mp3" # extract mp3 file for single youtube link.
+
+### coded on: [2019-05-29 Wed 01:47] .
+function myDateIt() {
+    newname=$(mydate)_$1
+    success=$(mv -nv $1 $newname)
+    if $(test -n "$success") ; then
+	echo "Now at '"$(ls -lasdh $newname)"'."
+    else
+	echo "Dating failed (check if target file already exists: '$newname')"
+    fi
+}
+
+function myUmlautRemove() {
+    sed 's/ä/ae/g' |
+    sed 's/ö/oe/g' |
+    sed 's/ü/ue/g' |
+    sed 's/ß/ss/g' |
+    sed 's/Ä/Ae/g' |
+    sed 's/Ö/Oe/g' |
+    sed 's/Ü/Ue/g' |
+    sed 's/ß/SS/g'
+}
+
+function mytoxfreename() { 
+  sed 's/[^\.[:alnum:]]/-/g'   | # remove all non-alphanumeric characters (except dots) by replacing with hyphens .
+    sed 's/[(\[\]){}]/-/g'     | # replace all kinds of brackets with spaces .
+    sed 's/--[-]*/_/g'         | # remove all groups of hyphens by replacing with underscores .
+    sed 's/^[-]*//g'           | # remove hyphens from the beginning of file names .
+    sed 's/[^[:alnum:]]\././g' | # remove non-alphanumeric character next to dots (if there is any, eg one hyphen left to one dot) .
+    myUmlautRemove             | # remove Ä, ä, Ö, ö, Ü, ü and ß .
+    iconv -f utf8 -t ascii//TRANSLIT | # remove diacritica .
+    tr 'A-Z' 'a-z';             # make lower case .
+}
+
+function mytoxremove() { 
+  for x in *; do
+    newName=$(echo $x | mytoxfreename)
+    mv -vib "$x" "$newName";
+    myDateIt "$newName";
+  done
+}
+
