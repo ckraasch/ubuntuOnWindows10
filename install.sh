@@ -21,7 +21,9 @@ sudo apt install pandoc pandoc-data # document conversion.
 sudo apt install python3-pip        # might be interactive.
 sudo -H pip3 install youtube-dl     # video downloads.
 sudo apt install ffmpeg             # video and audio converter.
-sudo apt install vipe               # vim for the command line.
+sudo apt install more-utils         # vipe -- vim for the command line pipe.
+sudo apt poppler-utils              # home of pdftotext.
+sudo apt exiftool                   # manipulate image exif data.
 
 # TODO: things in quotes ("xyz").
 
@@ -33,8 +35,10 @@ sudo apt install vipe               # vim for the command line.
 # 05) youtube-dl <video-or-playlist-url>         # downloads videos and mp3 files from video platforms (most prominently: youtube).
 # 06) convert <image-file>.png <imge-file>.jpg   # converts between image formats.
 # 07) ffmpeg                                     # converts between audio and video formats.
-# 08) "pdftotext"                                # converts pdf files to text files.
+# 08) pdftotext                                  # converts pdf files to text files.
 # 09) "mp3cut"                                   # cuts out timespan from music file.
+# 10) "mp3 tag stuff"                            # mp3 tag manipulations.
+# 11) "exiftool"                                 # remove exif data from images (for example camera type, or location and time).
 #
 # Useful unix utilities.
 # 01) grep                                       # finds text in string.
@@ -51,4 +55,4 @@ sudo apt install vipe               # vim for the command line.
 # 03) myGrepUrl                                  # filter out URLs.
 # 04) myScanSort                                 # sort stack of front pages and stock of back pages into alternating pages: aaa.. bbb.. -> ababab..
 #
-# Other commands: xargs mkdir rmdir rm cd ls 
+# Other commands: xargs mkdir rmdir rm cd ls man su pwd
