@@ -11,6 +11,7 @@ alias yt-dl-vid="youtube-dl --add-metadata"
 alias yt-dl-vid-pl="youtube-dl --add-metadata -o '%(playlist_index)s_%(title)s.%(ext)s' --restrict-filenames"
 alias yt-dl-vid-pl-folder="youtube-dl --add-metadata -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
 alias y="yt-dl-mp3" # extract mp3 file for single youtube link.
+alias yy="yt-dl-mp3-pl" # alias for playlists.
 
 function myDateIt() {
     newname=$(mydate)_$1
